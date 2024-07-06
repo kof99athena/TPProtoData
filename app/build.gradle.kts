@@ -3,7 +3,7 @@ import com.google.protobuf.gradle.*
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.protobuf") version "0.9.1"
+    id("com.google.protobuf") version "0.9.4"
 }
 
 android {
@@ -86,11 +86,13 @@ protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:$protobufVersion"
     }
-    generateProtoTasks {
-        all().forEach { task ->
-            task.builtins {
-                java {
-                    "lite"
+    plugins {
+        generateProtoTasks {
+            all().forEach {
+                it.builtins {
+                    create("java") {
+                        option("lite")
+                    }
                 }
             }
         }
