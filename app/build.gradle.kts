@@ -1,5 +1,3 @@
-import com.google.protobuf.gradle.*
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -56,7 +54,7 @@ val protobufVersion = "3.21.7"
 
 dependencies {
     implementation("com.google.protobuf:protobuf-javalite:$protobufVersion")
-    implementation("androidx.datastore:datastore:1.0.0-alpha03")
+    implementation("androidx.datastore:datastore:1.1.1-alpha03")
 
     implementation("androidx.datastore:datastore:1.1.1")
     // optional - RxJava2 support
